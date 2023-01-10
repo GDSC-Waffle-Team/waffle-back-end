@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: ${DB_JDBC_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    initialize: false
+    url: jdbc:mysql://localhost:3306/waffle
+    username: waffle
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database: mysql
@@ -19,5 +20,5 @@ spring:
     init:
       mode: always
 jwt:
-  secret: ${JWT_SECRET_KEY}
+  secret: Z2RzYy1za2h1LWphdmEtYmFja2VuZC1qd3Qtc3R1ZHktZGVjZW1iZXItMjh0aC1oYW5naWxsZWU=
   token-validity-in-milliseconds: 86400000
