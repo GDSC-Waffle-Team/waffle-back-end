@@ -7,8 +7,10 @@ import com.waffle.waffle.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
@@ -20,7 +22,7 @@ public class MemberController {
 
     // 메인 페이지
     @GetMapping("/main")
-    public ResponseEntity<String> main2() {
+    public ResponseEntity<String> main() {
         return ResponseEntity.ok("메인 로그인 페이지");
     }
 
