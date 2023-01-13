@@ -1,6 +1,6 @@
 spring:
   datasource:
-    initialize: false
+    initialize: true
     url: jdbc:mysql://localhost:3306/waffle
     username: waffle
     password:

@@ -2,13 +2,11 @@ package com.waffle.waffle.service;
 
 import com.waffle.waffle.domain.DTO.FineDTO;
 import com.waffle.waffle.domain.Fine;
-import com.waffle.waffle.domain.Member;
 import com.waffle.waffle.repository.FineRepository;
 import com.waffle.waffle.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 

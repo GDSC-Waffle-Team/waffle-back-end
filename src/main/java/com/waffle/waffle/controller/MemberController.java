@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 
@@ -20,7 +21,7 @@ public class MemberController {
 
     // 메인 페이지
     @GetMapping("/main")
-    public ResponseEntity<String> main2() {
+    public ResponseEntity<String> main() {
         return ResponseEntity.ok("메인 로그인 페이지");
     }
 
@@ -32,6 +33,23 @@ public class MemberController {
         String password = memberLoginRequestDto.getPassword();
         TokenDTO tokenDTO = memberService.login(memberId, password);
         return tokenDTO;
+    }
+
+    // 로그인 시 권한에 해당하는 화면으로 리다이렉션
+    @GetMapping("/login")
+    public RedirectView login2(Authentication authentication) throws Exception{
+        RedirectView redirectView = new RedirectView();
+        if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_ADMIN")) {
+            redirectView.setUrl("/admin");
+            return redirectView;
+        }
+        else if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_MEMBER")) {
+            redirectView.setUrl("/member");
+            return redirectView;
+        }
+        else {
+            throw new Exception("권한 오류");
+        }
     }
 
     // 멤버 전용 페이지

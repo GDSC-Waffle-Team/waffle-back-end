@@ -1,6 +1,5 @@
 package com.waffle.waffle.domain;
 
-import com.waffle.waffle.domain.DTO.FineDTO;
 import com.waffle.waffle.domain.DTO.MemberDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
